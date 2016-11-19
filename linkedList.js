@@ -51,9 +51,42 @@ function linkedListGenerator(){
     return curNode;
   }
 
+  function remove(num) {
+    var curNode = get(num); // we will delete this node
+    var prevNode = get(num - 1);
+    if (curNode === false){
+      return false;
+    }else if(num === 0) { //if the first node is selected
+      head = curNode.next;
+    }
+    prevNode.next = curNode.next;
+  }
+
+  function inser(Value, num) {
+    var curNode = get(num);
+    var prevNode = get(num - 1);
+    var newNode = {
+      value: Value,
+      next: null
+    };
+  }
+
   return {
     getHead: getHead,
     getTail: getTail,
-    add: add
+    add: add,
+    get: get,
+    remove: remove
   };
 }
+
+var ll = linkedListGenerator();
+ll.add(0);
+ll.add(1);
+ll.add(2);
+ll.add(3);
+ll.add(4);
+ll.remove(2);
+console.log(ll.getHead());
+// console.log(ll.getHead());
+// console.log(ll.get(2));
