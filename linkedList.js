@@ -64,7 +64,7 @@ function linkedListGenerator(){
   }
 
   function insert(Value, num) {
-    var curNode = get(num); //this is the node after the new node
+    var curNode = get(num);
     var prevNode = get(num - 1);
     var newNode = {
       value: Value,
@@ -88,15 +88,3 @@ function linkedListGenerator(){
     insert: insert
   };
 }
-
-var ll = linkedListGenerator();
-ll.add(0);
-ll.add(1);
-ll.add(2);
-ll.add(3);
-ll.add(4);
-ll.remove(2);
-ll.insert('newVal', 1);
-console.log(ll.getHead());
-// console.log(ll.getHead());
-// console.log(ll.get(2));
