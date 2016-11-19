@@ -10,7 +10,23 @@ function linkedListGenerator(){
   function getHead() {
     return head;
   }
+
+  function add(Value) {
+    var tail = getTail();
+    var newNode = {
+      value: Value,
+      next: null
+    };
+    if (head === null) {
+      head = newNode;
+    } else {
+      tail.next = newNode;
+      }
+    return newNode;
+  }
+
   return {
-    getHead: getHead
+    getHead: getHead,
+    add: add
   };
 }
