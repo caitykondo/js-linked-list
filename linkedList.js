@@ -5,4 +5,12 @@
  */
 function linkedListGenerator(){
 
+  var head = null;
+
+  function getHead() {
+    return head;
+  }
+  return {
+    getHead: getHead
+  };
 }
