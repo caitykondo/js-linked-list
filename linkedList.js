@@ -52,23 +52,31 @@ function linkedListGenerator(){
   }
 
   function remove(num) {
-    var curNode = get(num); // we will delete this node
+    var curNode = get(num);
     var prevNode = get(num - 1);
     if (curNode === false){
       return false;
-    }else if(num === 0) { //if the first node is selected
+    }else if(num === 0) {
       head = curNode.next;
+    }else{
+      prevNode.next = curNode.next;
     }
-    prevNode.next = curNode.next;
   }
 
-  function inser(Value, num) {
-    var curNode = get(num);
+  function insert(Value, num) {
+    var curNode = get(num); //this is the node after the new node
     var prevNode = get(num - 1);
     var newNode = {
       value: Value,
-      next: null
+      next: curNode
     };
+    if(curNode === false || num < 0){
+      return false;
+    }else if(num === 0){
+      head = newNode;
+    }else {
+      prevNode.next = newNode;
+    }
   }
 
   return {
@@ -76,7 +84,8 @@ function linkedListGenerator(){
     getTail: getTail,
     add: add,
     get: get,
-    remove: remove
+    remove: remove,
+    insert: insert
   };
 }
 
@@ -87,6 +96,7 @@ ll.add(2);
 ll.add(3);
 ll.add(4);
 ll.remove(2);
+ll.insert('newVal', 1);
 console.log(ll.getHead());
 // console.log(ll.getHead());
 // console.log(ll.get(2));
