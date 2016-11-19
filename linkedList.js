@@ -37,6 +37,20 @@ function linkedListGenerator(){
     return newNode;
   }
 
+  function get(num) {
+    var curNode = head;
+    var count = 0;
+    while (count < num){
+      if(curNode.next !== null){
+        count++;
+        curNode = curNode.next;
+      }else{
+        return false;
+      }
+    }
+    return curNode;
+  }
+
   return {
     getHead: getHead,
     getTail: getTail,
