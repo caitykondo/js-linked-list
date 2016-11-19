@@ -11,6 +11,18 @@ function linkedListGenerator(){
     return head;
   }
 
+  function getTail() {
+    var curNode = head;
+    while(curNode !== null){
+      if(curNode.next !== null){
+        curNode = curNode.next;
+      } else {
+        return curNode;
+      }
+    }
+    return curNode;
+  }
+
   function add(Value) {
     var tail = getTail();
     var newNode = {
@@ -27,6 +39,7 @@ function linkedListGenerator(){
 
   return {
     getHead: getHead,
+    getTail: getTail,
     add: add
   };
 }
